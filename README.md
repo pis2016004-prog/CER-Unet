@@ -26,22 +26,12 @@ state-of-the-art performance with significantly lower trainable params. *
 
 ![Architecture overview](media/UNETR++_Block_Diagram.jpg)
 
-<hr />
-
-
-
-### ACDC Dataset
-Qualitative comparison on the ACDC dataset. We compare our UNETR++ with existing methods: UNETR and nnFormer. It is noticeable that the existing methods struggle to correctly segment different organs (marked in red dashed box). Our UNETR++ achieves favorable segmentation performance by accurately segmenting the organs.  Our UNETR++ achieves promising segmentation performance by accurately segmenting the organs.
-![ACDC Qual Results](media/acdc_vs_unetr_suppl.jpg)
-
-
-<hr />
 
 
 
 
 ## Dataset
-We follow the same dataset preprocessing as in [nnFormer](https://github.com/282857341/nnFormer). We conducted extensive experiments on five benchmarks: Synapse, BTCV, ACDC, BRaTs, and Decathlon-Lung. 
+We follow the same dataset preprocessing as in [nnFormer](https://github.com/282857341/nnFormer). We conducted extensive experiments on five benchmarks: Synapse, and ACDC datasets.
 
 The dataset folders for Synapse should be organized as follows: 
 
@@ -85,8 +75,6 @@ The following scripts can be used for training our UNETR++ model on the datasets
 ```shell
 bash training_scripts/run_training_synapse.sh
 bash training_scripts/run_training_acdc.sh
-bash training_scripts/run_training_lung.sh
-bash training_scripts/run_training_tumor.sh
 ```
 
 <hr />
