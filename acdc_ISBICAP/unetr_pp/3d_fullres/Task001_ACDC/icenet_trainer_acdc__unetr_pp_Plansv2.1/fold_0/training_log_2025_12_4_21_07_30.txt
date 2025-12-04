@@ -1,0 +1,3040 @@
+Starting... 
+2025-12-04 21:07:30.578905: Using dummy2d data augmentation 
+2025-12-04 21:07:30.740111: Using splits from existing split file: ../DATASET/DATASET_Acdc/unetr_pp_raw/unetr_pp_raw_data/Task01_ACDC/Task001_ACDC/splits_final.pkl 
+2025-12-04 21:07:30.740533: The split file contains 5 splits. 
+2025-12-04 21:07:30.740694: Desired fold for training: 0 
+2025-12-04 21:07:30.740903: This split has 160 training and 40 validation cases. 
+2025-12-04 21:07:31.031409: TRAINING KEYS:
+ odict_keys(['patient001_frame01', 'patient001_frame12', 'patient004_frame01', 'patient004_frame15', 'patient005_frame01', 'patient005_frame13', 'patient006_frame01', 'patient006_frame16', 'patient007_frame01', 'patient007_frame07', 'patient010_frame01', 'patient010_frame13', 'patient011_frame01', 'patient011_frame08', 'patient013_frame01', 'patient013_frame14', 'patient015_frame01', 'patient015_frame10', 'patient016_frame01', 'patient016_frame12', 'patient018_frame01', 'patient018_frame10', 'patient019_frame01', 'patient019_frame11', 'patient020_frame01', 'patient020_frame11', 'patient021_frame01', 'patient021_frame13', 'patient022_frame01', 'patient022_frame11', 'patient023_frame01', 'patient023_frame09', 'patient025_frame01', 'patient025_frame09', 'patient026_frame01', 'patient026_frame12', 'patient027_frame01', 'patient027_frame11', 'patient028_frame01', 'patient028_frame09', 'patient029_frame01', 'patient029_frame12', 'patient030_frame01', 'patient030_frame12', 'patient031_frame01', 'patient031_frame10', 'patient032_frame01', 'patient032_frame12', 'patient033_frame01', 'patient033_frame14', 'patient034_frame01', 'patient034_frame16', 'patient035_frame01', 'patient035_frame11', 'patient036_frame01', 'patient036_frame12', 'patient037_frame01', 'patient037_frame12', 'patient038_frame01', 'patient038_frame11', 'patient039_frame01', 'patient039_frame10', 'patient040_frame01', 'patient040_frame13', 'patient041_frame01', 'patient041_frame11', 'patient043_frame01', 'patient043_frame07', 'patient044_frame01', 'patient044_frame11', 'patient045_frame01', 'patient045_frame13', 'patient046_frame01', 'patient046_frame10', 'patient047_frame01', 'patient047_frame09', 'patient050_frame01', 'patient050_frame12', 'patient051_frame01', 'patient051_frame11', 'patient052_frame01', 'patient052_frame09', 'patient054_frame01', 'patient054_frame12', 'patient056_frame01', 'patient056_frame12', 'patient057_frame01', 'patient057_frame09', 'patient058_frame01', 'patient058_frame14', 'patient059_frame01', 'patient059_frame09', 'patient060_frame01', 'patient060_frame14', 'patient061_frame01', 'patient061_frame10', 'patient062_frame01', 'patient062_frame09', 'patient063_frame01', 'patient063_frame16', 'patient065_frame01', 'patient065_frame14', 'patient066_frame01', 'patient066_frame11', 'patient068_frame01', 'patient068_frame12', 'patient069_frame01', 'patient069_frame12', 'patient070_frame01', 'patient070_frame10', 'patient071_frame01', 'patient071_frame09', 'patient072_frame01', 'patient072_frame11', 'patient073_frame01', 'patient073_frame10', 'patient074_frame01', 'patient074_frame12', 'patient075_frame01', 'patient075_frame06', 'patient076_frame01', 'patient076_frame12', 'patient077_frame01', 'patient077_frame09', 'patient078_frame01', 'patient078_frame09', 'patient080_frame01', 'patient080_frame10', 'patient082_frame01', 'patient082_frame07', 'patient083_frame01', 'patient083_frame08', 'patient084_frame01', 'patient084_frame10', 'patient085_frame01', 'patient085_frame09', 'patient086_frame01', 'patient086_frame08', 'patient087_frame01', 'patient087_frame10', 'patient089_frame01', 'patient089_frame10', 'patient090_frame04', 'patient090_frame11', 'patient091_frame01', 'patient091_frame09', 'patient093_frame01', 'patient093_frame14', 'patient094_frame01', 'patient094_frame07', 'patient096_frame01', 'patient096_frame08', 'patient097_frame01', 'patient097_frame11', 'patient098_frame01', 'patient098_frame09', 'patient099_frame01', 'patient099_frame09', 'patient100_frame01', 'patient100_frame13']) 
+2025-12-04 21:07:31.031635: VALIDATION KEYS:
+ odict_keys(['patient002_frame01', 'patient002_frame12', 'patient003_frame01', 'patient003_frame15', 'patient008_frame01', 'patient008_frame13', 'patient009_frame01', 'patient009_frame13', 'patient012_frame01', 'patient012_frame13', 'patient014_frame01', 'patient014_frame13', 'patient017_frame01', 'patient017_frame09', 'patient024_frame01', 'patient024_frame09', 'patient042_frame01', 'patient042_frame16', 'patient048_frame01', 'patient048_frame08', 'patient049_frame01', 'patient049_frame11', 'patient053_frame01', 'patient053_frame12', 'patient055_frame01', 'patient055_frame10', 'patient064_frame01', 'patient064_frame12', 'patient067_frame01', 'patient067_frame10', 'patient079_frame01', 'patient079_frame11', 'patient081_frame01', 'patient081_frame07', 'patient088_frame01', 'patient088_frame12', 'patient092_frame01', 'patient092_frame06', 'patient095_frame01', 'patient095_frame12']) 
+2025-12-04 21:07:41.780025: lr: 0.01 
+2025-12-04 21:07:44.467500: Unable to plot network architecture: 
+2025-12-04 21:07:44.484975: No module named 'hiddenlayer' 
+2025-12-04 21:07:44.485183: 
+printing the network instead:
+ 
+2025-12-04 21:07:44.485653: UNETR_PP(
+  (unetr_pp_encoder): UnetrPPEncoder(
+    (downsample_layers): ModuleList(
+      (0): Sequential(
+        (0): Convolution(
+          (conv): Conv3d(1, 32, kernel_size=(1, 4, 4), stride=(1, 4, 4), bias=False)
+        )
+        (1): GroupNorm(1, 32, eps=1e-05, affine=True)
+      )
+      (1): Sequential(
+        (0): Convolution(
+          (conv): Conv3d(32, 64, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+        )
+        (1): GroupNorm(32, 64, eps=1e-05, affine=True)
+      )
+      (2): Sequential(
+        (0): Convolution(
+          (conv): Conv3d(64, 128, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+        )
+        (1): GroupNorm(64, 128, eps=1e-05, affine=True)
+      )
+      (3): Sequential(
+        (0): Convolution(
+          (conv): Conv3d(128, 256, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+        )
+        (1): GroupNorm(128, 256, eps=1e-05, affine=True)
+      )
+    )
+    (stages): ModuleList(
+      (0): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+      (1): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+      (2): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+      (3): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(256, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(256, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(512, 512, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=512, bias=False)
+                    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=64)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(256, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=64)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+                (depthwise_temporal): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=64)
+              )
+            )
+            (norm1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(256, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+    )
+  )
+  (encoder1): UnetResBlock(
+    (inception): Inception3D(
+      (p1_1): Conv2p5D(
+        (pointwise): Conv3d(1, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+      )
+      (p2_1): Conv2p5D(
+        (pointwise): Conv3d(1, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+        (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+      )
+      (p2_2): Conv2p5D(
+        (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=4)
+      )
+      (p3_1): Conv2p5D(
+        (pointwise): Conv3d(1, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+        (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+      )
+      (p3_2): Conv2p5D(
+        (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=4)
+      )
+      (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+      (p4_2): Conv2p5D(
+        (pointwise): Conv3d(1, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+      )
+    )
+    (norm1): InstanceNorm3d(16, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (act): LeakyReLU(negative_slope=0.01, inplace=True)
+    (inception2): Convolution(
+      (conv): Conv3d(16, 16, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    )
+    (norm2): InstanceNorm3d(16, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (res_inception): Inception3D(
+      (p1_1): Conv2p5D(
+        (pointwise): Conv3d(1, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+      )
+      (p2_1): Conv2p5D(
+        (pointwise): Conv3d(1, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+        (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+      )
+      (p2_2): Conv2p5D(
+        (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=4)
+      )
+      (p3_1): Conv2p5D(
+        (pointwise): Conv3d(1, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+        (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+      )
+      (p3_2): Conv2p5D(
+        (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=4)
+      )
+      (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+      (p4_2): Conv2p5D(
+        (pointwise): Conv3d(1, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+        (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+        (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+      )
+    )
+    (norm_res): InstanceNorm3d(16, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  )
+  (decoder5): UnetrUpBlock(
+    (transp_conv): Convolution(
+      (conv): ConvTranspose3d(256, 128, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+    )
+    (decoder_block): ModuleList(
+      (0): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(256, 256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=256, bias=False)
+                    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=32)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(128, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(16, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=32)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(128, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+                (depthwise_temporal): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=32)
+              )
+            )
+            (norm1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(128, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+    )
+  )
+  (decoder4): UnetrUpBlock(
+    (transp_conv): Convolution(
+      (conv): ConvTranspose3d(128, 64, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+    )
+    (decoder_block): ModuleList(
+      (0): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=16)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(64, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(8, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=16)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(64, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+                (depthwise_temporal): Conv3d(16, 16, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=16)
+              )
+            )
+            (norm1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+    )
+  )
+  (decoder3): UnetrUpBlock(
+    (transp_conv): Convolution(
+      (conv): ConvTranspose3d(64, 32, kernel_size=(2, 2, 2), stride=(2, 2, 2), bias=False)
+    )
+    (decoder_block): ModuleList(
+      (0): Sequential(
+        (0): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (1): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+        (2): TransformerBlock(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (epa_block): EPA(
+            (epa): LightCBAM(
+              (simam_channel): simam_module(
+                (activation): Sigmoid()
+              )
+              (ca_drop): Dropout(p=0.1, inplace=False)
+              (simam_spatial): simam_spatial(
+                (activation): Sigmoid()
+              )
+              (sa_drop): Dropout(p=0.1, inplace=False)
+            )
+            (mscb): MSCB(
+              (pconv1): Sequential(
+                (0): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (2): ReLU6(inplace=True)
+              )
+              (msdc): MSDC(
+                (dwconvs): ModuleList(
+                  (0): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (1): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                  (2): Sequential(
+                    (0): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (2): ReLU6(inplace=True)
+                  )
+                )
+              )
+              (pconv2): Sequential(
+                (0): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+          )
+          (conv51): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv52): UnetResBlock(
+            (inception): Inception3D(
+              (p1_1): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+              (p2_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p2_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=8)
+              )
+              (p3_1): Conv2p5D(
+                (pointwise): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+                (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+              )
+              (p3_2): Conv2p5D(
+                (pointwise): Conv3d(4, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=8)
+              )
+              (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+              (p4_2): Conv2p5D(
+                (pointwise): Conv3d(32, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+                (depthwise_spatial): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+                (depthwise_temporal): Conv3d(8, 8, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=8)
+              )
+            )
+            (norm1): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): LeakyReLU(negative_slope=0.01, inplace=True)
+            (inception2): Convolution(
+              (conv): Conv3d(32, 32, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+            )
+            (norm2): BatchNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv8): Sequential(
+            (0): Dropout3d(p=0.1, inplace=False)
+            (1): Conv3d(32, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+          )
+        )
+      )
+    )
+  )
+  (decoder2): UnetrUpBlock(
+    (transp_conv): Convolution(
+      (conv): ConvTranspose3d(32, 16, kernel_size=(1, 4, 4), stride=(1, 4, 4), bias=False)
+    )
+    (decoder_block): ModuleList(
+      (0): UnetResBlock(
+        (inception): Inception3D(
+          (p1_1): Conv2p5D(
+            (pointwise): Conv3d(16, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+            (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+          )
+          (p2_1): Conv2p5D(
+            (pointwise): Conv3d(16, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+            (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+          )
+          (p2_2): Conv2p5D(
+            (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), groups=4)
+            (depthwise_temporal): Conv3d(4, 4, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), groups=4)
+          )
+          (p3_1): Conv2p5D(
+            (pointwise): Conv3d(16, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+            (depthwise_temporal): Conv3d(2, 2, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=2)
+          )
+          (p3_2): Conv2p5D(
+            (pointwise): Conv3d(2, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 5, 5), stride=(1, 1, 1), padding=(0, 2, 2), groups=4)
+            (depthwise_temporal): Conv3d(4, 4, kernel_size=(5, 1, 1), stride=(1, 1, 1), padding=(2, 0, 0), groups=4)
+          )
+          (p4_1): MaxPool3d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=False)
+          (p4_2): Conv2p5D(
+            (pointwise): Conv3d(16, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+            (depthwise_spatial): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+            (depthwise_temporal): Conv3d(4, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1), groups=4)
+          )
+        )
+        (norm1): InstanceNorm3d(16, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (act): LeakyReLU(negative_slope=0.01, inplace=True)
+        (inception2): Convolution(
+          (conv): Conv3d(16, 16, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (norm2): InstanceNorm3d(16, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      )
+    )
+  )
+  (out1): UnetOutBlock(
+    (conv): Convolution(
+      (conv): Conv3d(16, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+    )
+  )
+  (out2): UnetOutBlock(
+    (conv): Convolution(
+      (conv): Conv3d(32, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+    )
+  )
+  (out3): UnetOutBlock(
+    (conv): Convolution(
+      (conv): Conv3d(64, 4, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+    )
+  )
+  (moe): MoE(
+    (experts): ModuleList(
+      (0-3): 4 x CapsuleExpert(
+        (conv_capsules): ModuleList(
+          (0-15): 16 x Sequential(
+            (0): Conv2d(256, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace=True)
+          )
+        )
+        (output_proj): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (gates): ParameterList(
+        (0): Parameter containing: [torch.float32 of size 256x4 (cuda:0)]
+        (1): Parameter containing: [torch.float32 of size 256x4 (cuda:0)]
+        (2): Parameter containing: [torch.float32 of size 256x4 (cuda:0)]
+        (3): Parameter containing: [torch.float32 of size 256x4 (cuda:0)]
+    )
+    (gap): AdaptiveAvgPool2d(output_size=(1, 1))
+  )
+  (conv3_t3): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+  (conv1d_t4): Conv1d(256, 64, kernel_size=(1,), stride=(1,))
+  (fc_t4): Linear(in_features=50, out_features=25600, bias=True)
+  (docker1): Docker(
+    (conv): Sequential(
+      (0): Conv2d(256, 32, kernel_size=(1, 1), stride=(1, 1))
+      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+    )
+  )
+  (docker2): Docker(
+    (conv): Sequential(
+      (0): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1))
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+    )
+  )
+  (docker3): Docker(
+    (conv): Sequential(
+      (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+    )
+  )
+  (docker4): Docker(
+    (conv): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+    )
+  )
+  (conv3d_t1): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+  (conv3d_t2): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+) 
+2025-12-04 21:07:44.623382: 
+ 
+2025-12-04 21:07:44.623958: 
+epoch:  0 
+2025-12-04 21:11:28.730004: train loss : -0.0357 
+2025-12-04 21:11:40.283420: validation loss: -0.3743 
+2025-12-04 21:11:40.284353: Average global foreground Dice: [0.36285598499715704, 0.5709028123471621, 0.7989037198658956] 
+2025-12-04 21:11:40.284484: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2025-12-04 21:11:40.960362: lr: 0.009991 
+2025-12-04 21:11:40.960664: current best_val_eval_criterion_MA is 0.57760 
+2025-12-04 21:11:40.960746: current val_eval_criterion_MA is 0.5776 
+2025-12-04 21:11:40.960861: This epoch took 236.336596 s
+ 
+2025-12-04 21:11:40.960944: 
+epoch:  1 
