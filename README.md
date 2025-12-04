@@ -23,7 +23,7 @@ state-of-the-art performance with significantly lower trainable params. *
 <hr />
 
 
-![Architecture overview](media/UNETR++_Block_Diagram.jpg)
+![Architecture overview](SCR-Net.png)
 
 
 
