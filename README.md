@@ -5,13 +5,25 @@
 <hr />
 
 ![main figure](media/intro_fig.png)
-> **Abstract:** *Owing to the success of transformer models, recent works study their applicability in 3D medical segmentation tasks. Within the transformer models, the self-attention mechanism is one of the main building blocks that strives to capture long-range dependencies. However, the self-attention operation has quadratic complexity which proves to be a computational bottleneck, especially in volumetric medical imaging, where the inputs are 3D with numerous slices.  In this paper, we propose a 3D medical image segmentation approach, named UNETR++, that offers both high-quality segmentation masks as well as efficiency in terms of parameters, compute cost, and inference speed. The core of our design is the introduction of a novel efficient paired attention (EPA) block that efficiently learns spatial and channel-wise discriminative features using a pair of inter-dependent branches based on spatial and channel attention.
-Our spatial attention formulation is efficient having linear complexity with respect to the input sequence length. To enable communication between spatial and channel-focused branches, we share the weights of query and key mapping functions that provide a complimentary benefit (paired attention), while also reducing the overall network parameters. Our extensive evaluations on five benchmarks, Synapse, BTCV, ACDC, BRaTs, and Decathlon-Lung, reveal the effectiveness of our contributions in terms of both efficiency and accuracy. On Synapse, our UNETR++ sets a new state-of-the-art with a Dice Score of 87.2%, while being significantly efficient with a reduction of over 71% in terms of both parameters and FLOPs, compared to the best method in the literature.* 
+> **Abstract:** *Recent advances in 3D medical image segmentation have been driven by hybrid CNN-Transformer
+architectures that capture long-range dependencies at the cost of heavy parameters and latency.
+This paper introduces Capsule-Expert Routing UNet (CER-UNet), a novel encoder–decoder model
+that achieves strong global context modeling with substantially lower computational params. CER-
+UNet integrates two complementary contributions: (1) a statistical attention module that performs
+computationally efficient long-range interaction via low-rank covariance pooling and channel-wise
+statistics, coupled with a 2.5D hybrid convolutional design featuring Inception-style multi-scale
+depthwise-separable kernels, (2) a Capsule-Expert Mixture-of-Experts (CapMoE) mechanism that
+introduces dynamic feature routing across hierarchical scales, enabling lightweight multi-scale
+fusion and expert specialization while avoiding the instability of full attention-based routers. CER-
+UNet preserves the strong context modeling of recent UNet-like CNN-Transformer hybrids but
+surpasses them in accuracy-efficiency balance. On ACDC, CER-UNet achieves 92.52% average
+Dice, and on Synapse, it attains 86.64% Dice with only 33M parameters, outperforming competitive
+Transformer baselines and conventional 2D/2.5D segmentation networks. Extensive experiments
+across multiple 3D medical segmentation benchmarks demonstrate that CER-UNet delivers robust
+state-of-the-art performance with significantly lower trainable params. * 
 <hr />
 
 
-## Architecture overview of UNETR++
-Overview of our UNETR++ approach with hierarchical encoder-decoder structure. The 3D patches are fed to the encoder, whose outputs are then connected to the decoder via skip connections followed by convolutional blocks to produce the final segmentation mask. The focus of our design is the introduction of an _efficient paired-attention_ (EPA) block. Each EPA block performs two tasks using parallel attention modules with shared keys-queries and different value layers to efficiently learn enriched spatial-channel feature representations. As illustrated in the EPA block diagram (on the right), the first (top) attention module aggregates the spatial features by a weighted sum of the projected features in a linear manner to compute the spatial attention maps, while the second (bottom) attention module emphasizes the dependencies in the channels and computes the channel attention maps. Finally, the outputs of the two attention modules are fused and passed to convolutional blocks to enhance the feature representation, leading to better segmentation masks.
 ![Architecture overview](media/UNETR++_Block_Diagram.jpg)
 
 <hr />
@@ -86,7 +98,6 @@ The dataset folders for Synapse should be organized as follows:
  
 
 Please refer to [Setting up the datasets](https://github.com/282857341/nnFormer) on nnFormer repository for more details.
-Alternatively, you can download the preprocessed dataset for [Synapse](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EbHDhSjkQW5Ak9SMPnGCyb8BOID98wdg3uUvQ0eNvTZ8RA?e=YVhfdg), [ACDC](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EY9qieTkT3JFrhCJQiwZXdsB1hJ4ebVAtNdBNOs2HAo3CQ?e=VwfFHC), [Decathlon-Lung](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EWhU1T7c-mNKgkS2PQjFwP0B810LCiX3D2CvCES2pHDVSg?e=OqcIW3), [BRaTs](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EaQOxpD2yE5Btl-UEBAbQa0BYFBCL4J2Ph-VF_sqZlBPSQ?e=DFY41h), and extract it under the project directory.
 
 ## Training
 The following scripts can be used for training our UNETR++ model on the datasets:
@@ -99,62 +110,11 @@ bash training_scripts/run_training_tumor.sh
 
 <hr />
 
-## Evaluation
-
-To reproduce the results of UNETR++: 
-
-1- Download [Synapse weights](https://drive.google.com/file/d/13JuLMeDQRR_a3c3tr2V2oav6I29fJoBa) and paste ```model_final_checkpoint.model``` in the following path:
-```shell
-unetr_pp/evaluation/unetr_pp_synapse_checkpoint/unetr_pp/3d_fullres/Task002_Synapse/unetr_pp_trainer_synapse__unetr_pp_Plansv2.1/fold_0/
-```
-Then, run 
-```shell
-bash evaluation_scripts/run_evaluation_synapse.sh
-```
-2- Download [ACDC weights](https://drive.google.com/file/d/15YXiHai1zLc1ycmXaiSHetYbLGum3tV5) and paste ```model_final_checkpoint.model``` it in the following path:
-```shell
-unetr_pp/evaluation/unetr_pp_acdc_checkpoint/unetr_pp/3d_fullres/Task001_ACDC/unetr_pp_trainer_acdc__unetr_pp_Plansv2.1/fold_0/
-```
-Then, run 
-```shell
-bash evaluation_scripts/run_evaluation_acdc.sh
-```
-
-
-3- Download [Decathlon-Lung weights](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/ETAlc8WTjV1BhZx7zwFpA8UBS4og6upb1qX2UKkypMoTjw?e=KfzAiG) and paste ```model_final_checkpoint.model``` it in the following path:
-```shell
-unetr_pp/evaluation/unetr_pp_lung_checkpoint/unetr_pp/3d_fullres/Task006_Lung/unetr_pp_trainer_lung__unetr_pp_Plansv2.1/fold_0/
-```
-Then, run 
-```shell
-bash evaluation_scripts/run_evaluation_lung.sh
-```
-
-4- Download [BRaTs weights](https://drive.google.com/file/d/1LiqnVKKv3DrDKvo6J0oClhIFirhaz5PG) and paste ```model_final_checkpoint.model``` it in the following path:
-```shell
-unetr_pp/evaluation/unetr_pp_lung_checkpoint/unetr_pp/3d_fullres/Task003_tumor/unetr_pp_trainer_tumor__unetr_pp_Plansv2.1/fold_0/
-```
-Then, run 
-```shell
-bash evaluation_scripts/run_evaluation_tumor.sh
-```
-
-<hr />
 
 ## Acknowledgement
 This repository is built based on [nnFormer](https://github.com/282857341/nnFormer) repository.
 
-## Citation
-If you use our work, please consider citing:
-```bibtex
-@ARTICLE{10526382,
-  title={UNETR++: Delving into Efficient and Accurate 3D Medical Image Segmentation}, 
-  author={Shaker, Abdelrahman M. and Maaz, Muhammad and Rasheed, Hanoona and Khan, Salman and Yang, Ming-Hsuan and Khan, Fahad Shahbaz},
-  journal={IEEE Transactions on Medical Imaging}, 
-  year={2024},
-  doi={10.1109/TMI.2024.3398728}}
 
-```
 
 ## Contact
 Should you have any question, please create an issue on this repository or contact me at abdelrahman.youssief@mbzuai.ac.ae.
