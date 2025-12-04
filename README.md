@@ -1,10 +1,9 @@
 # Capsule-Expert Routing UNet: A Hybrid 2.5D Convolution-Attention Architecture with Mixture-of-Experts for Efficient 3D Medical Segmentation
-#![](https://i.imgur.com/waxVImv.png)
 
 
 <hr />
 
-![main figure](media/intro_fig.png)
+
 > **Abstract:** *Recent advances in 3D medical image segmentation have been driven by hybrid CNN-Transformer
 architectures that capture long-range dependencies at the cost of heavy parameters and latency.
 This paper introduces Capsule-Expert Routing UNet (CER-UNet), a novel encoder–decoder model
