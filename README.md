@@ -1,5 +1,5 @@
 # Capsule-Expert Routing UNet: A Hybrid 2.5D Convolution-Attention Architecture with Mixture-of-Experts for Efficient 3D Medical Segmentation
-![](https://i.imgur.com/waxVImv.png)
+#![](https://i.imgur.com/waxVImv.png)
 
 
 <hr />
@@ -85,5 +85,3 @@ This repository is built based on [nnFormer](https://github.com/282857341/nnForm
 
 
 
-## Contact
-Should you have any question, please create an issue on this repository or contact me at abdelrahman.youssief@mbzuai.ac.ae.
