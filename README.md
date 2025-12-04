@@ -44,23 +44,7 @@ Qualitative comparison on the ACDC dataset. We compare our UNETR++ with existing
 
 <hr />
 
-## Installation
-The code is tested with PyTorch 1.11.0 and CUDA 11.3. After cloning the repository, follow the below steps for installation,
 
-1. Create and activate conda environment
-```shell
-conda create --name unetr_pp python=3.8
-conda activate unetr_pp
-```
-2. Install PyTorch and torchvision
-```shell
-pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
-```
-3. Install other dependencies
-```shell
-pip install -r requirements.txt
-```
-<hr />
 
 
 ## Dataset
@@ -100,39 +84,7 @@ The dataset folders for Synapse should be organized as follows:
            ├── Task001_ACDC
  ```
  
-  The dataset folders for Decathlon-Lung should be organized as follows: 
 
-```
-./DATASET_Lungs/
-  ├── unetr_pp_raw/
-      ├── unetr_pp_raw_data/
-           ├── Task06_Lung/
-              ├── imagesTr/
-              ├── imagesTs/
-              ├── labelsTr/
-              ├── labelsTs/
-              ├── dataset.json
-           ├── Task006_Lung
-       ├── unetr_pp_cropped_data/
-           ├── Task006_Lung
- ```
-   The dataset folders for BRaTs should be organized as follows: 
-
-```
-./DATASET_Tumor/
-  ├── unetr_pp_raw/
-      ├── unetr_pp_raw_data/
-           ├── Task03_tumor/
-              ├── imagesTr/
-              ├── imagesTs/
-              ├── labelsTr/
-              ├── labelsTs/
-              ├── dataset.json
-           ├── Task003_tumor
-       ├── unetr_pp_cropped_data/
-           ├── Task003_tumor
- ```
- 
 Please refer to [Setting up the datasets](https://github.com/282857341/nnFormer) on nnFormer repository for more details.
 Alternatively, you can download the preprocessed dataset for [Synapse](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EbHDhSjkQW5Ak9SMPnGCyb8BOID98wdg3uUvQ0eNvTZ8RA?e=YVhfdg), [ACDC](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EY9qieTkT3JFrhCJQiwZXdsB1hJ4ebVAtNdBNOs2HAo3CQ?e=VwfFHC), [Decathlon-Lung](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EWhU1T7c-mNKgkS2PQjFwP0B810LCiX3D2CvCES2pHDVSg?e=OqcIW3), [BRaTs](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/abdelrahman_youssief_mbzuai_ac_ae/EaQOxpD2yE5Btl-UEBAbQa0BYFBCL4J2Ph-VF_sqZlBPSQ?e=DFY41h), and extract it under the project directory.
 
