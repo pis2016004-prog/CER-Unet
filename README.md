@@ -29,25 +29,6 @@ state-of-the-art performance with significantly lower trainable params. *
 <hr />
 
 
-## Results
-
-### Synapse Dataset
-State-of-the-art comparison on the abdominal multi-organ Synapse dataset. We report both the segmentation performance (DSC, HD95) and model complexity (parameters and FLOPs).
-Our proposed UNETR++ achieves favorable segmentation performance against existing methods, while being considerably reducing the model complexity. Best results are in bold. 
-Abbreviations stand for: Spl: _spleen_, RKid: _right kidney_, LKid: _left kidney_, Gal: _gallbladder_, Liv: _liver_, Sto: _stomach_, Aor: _aorta_, Pan: _pancreas_. 
-Best results are in bold.
-
-![Synapse Results](media/synapse_results.png)
-
-<hr />
-
-## Qualitative Comparison
-
-### Synapse Dataset
-Qualitative comparison on multi-organ segmentation task. Here, we compare our UNETR++ with existing methods: UNETR, Swin UNETR, and nnFormer. 
-The different abdominal organs are shown in the legend below the examples. Existing methods struggle to correctly segment different organs (marked in red dashed box). 
-Our UNETR++ achieves promising segmentation performance by accurately segmenting the organs.
-![Synapse Qual Results](media/UNETR++_results_fig_synapse.jpg)
 
 ### ACDC Dataset
 Qualitative comparison on the ACDC dataset. We compare our UNETR++ with existing methods: UNETR and nnFormer. It is noticeable that the existing methods struggle to correctly segment different organs (marked in red dashed box). Our UNETR++ achieves favorable segmentation performance by accurately segmenting the organs.  Our UNETR++ achieves promising segmentation performance by accurately segmenting the organs.
