@@ -70,7 +70,7 @@ The dataset folders for Synapse should be organized as follows:
 Please refer to [Setting up the datasets](https://github.com/282857341/nnFormer) on nnFormer repository for more details.
 
 ## Training
-The following scripts can be used for training our UNETR++ model on the datasets:
+The following scripts can be used for training our CER-Net model on the datasets:
 ```shell
 bash training_scripts/run_training_synapse.sh
 bash training_scripts/run_training_acdc.sh
