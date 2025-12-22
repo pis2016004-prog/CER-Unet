@@ -380,7 +380,7 @@ class Docker(nn.Module):
         x = F.adaptive_avg_pool3d(x, output_size=(target_t, target_h, target_w))
         return x
 
-class UNETR_PP(SegmentationNetwork):
+class CERNET(SegmentationNetwork):
     def __init__(self, in_channels, out_channels, feature_size=16, hidden_size=256, num_heads=4,
                  pos_embed="perceptron", norm_name="instance", dropout_rate=0.0, depths=None, dims=None,
                  conv_op=nn.Conv3d, do_ds=True):
