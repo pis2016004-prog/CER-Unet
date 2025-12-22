@@ -563,10 +563,9 @@ class UNETR_PP(SegmentationNetwork):
 
         return logits, moe_loss
 
-class UNETR_PP(SegmentationNetwork):
+class CERNET(SegmentationNetwork):
     """
-    UNETR++ based on: "Shaker et al.,
-    UNETR++: Delving into Efficient and Accurate 3D Medical Image Segmentation"
+     CERNET
     """
     def __init__(
             self,
