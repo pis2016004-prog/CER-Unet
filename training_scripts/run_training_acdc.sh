@@ -8,5 +8,5 @@ export unetr_pp_preprocessed=../DATASET/DATASET_Acdc/unetr_pp_raw/unetr_pp_raw_d
 #"$DATASET_PATH"/unetr_pp_raw/unetr_pp_raw_data/Task01_ACDC
 export unetr_pp_raw_data_base=../DATASET/DATASET_Acdc/unetr_pp_raw
 
-python cernet/run/run_training.py 3d_fullres icenet_trainer_acdc 1 0 
+python cernet/run/run_training.py 3d_fullres cernet_trainer_acdc 1 0 
 
