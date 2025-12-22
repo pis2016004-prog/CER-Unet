@@ -363,9 +363,9 @@ class Docker(nn.Module):
 
         return x_fused
 
-class UNETR_PP(SegmentationNetwork):
+class CERNET(SegmentationNetwork):
     """
-    UNETR++ with Spatial MoE in skip connections.
+    CERNET with Spatial MoE in skip connections.
     """
 
     def __init__(
