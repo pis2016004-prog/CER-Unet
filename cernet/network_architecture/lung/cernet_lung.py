@@ -251,11 +251,8 @@ def reshape_to_volume(x, out_channels, out_shape=(16, 40, 40)):
     return x
 
 
-class UNETR_PP(SegmentationNetwork):
-    """
-    UNETR++ based on: "Shaker et al.,
-    UNETR++: Delving into Efficient and Accurate 3D Medical Image Segmentation"
-    """
+class CERNET(SegmentationNetwork):
+   
     def __init__(
             self,
             in_channels: int,
