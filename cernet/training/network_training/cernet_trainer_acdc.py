@@ -155,7 +155,7 @@ class cernet_trainer_acdc(Trainer_acdc):
         :return:
         """
 
-        self.network = UNETR_PP(in_channels=self.input_channels,
+        self.network = CERNET(in_channels=self.input_channels,
                              out_channels=self.num_classes,
                              feature_size=16,
                              num_heads=4,
