@@ -159,7 +159,7 @@ class cernet_trainer_synapse(Trainer_synapse):
         :return:
         """
 
-        self.network = UNETR_PP(in_channels=self.input_channels,
+        self.network = CERNET(in_channels=self.input_channels,
                              out_channels=self.num_classes,
                              img_size=self.crop_size,
                              feature_size=16,
