@@ -1,4 +1,4 @@
-# Capsule-Expert Routing UNet: A Hybrid 2.5D Convolution-Attention Architecture with Mixture-of-Experts for Efficient 3D Medical Segmentation
+# Capsule-Expert Routing UNet: A Hybrid 2.5D Convolution-Attention Architecture with Mixture-of-Experts for 3D Medical Segmentation
 
 
 <hr />
