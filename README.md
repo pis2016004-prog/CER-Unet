@@ -23,7 +23,7 @@ state-of-the-art performance with significantly lower trainable params. *
 <hr />
 
 
-![Architecture overview](CERNFT.png)
+![Architecture overview](CERNETF.png)
 
 
 
