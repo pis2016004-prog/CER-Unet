@@ -8,41 +8,24 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from typing import Tuple, List, Set
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from typing import Tuple
 
-class Expert(nn.Module):
-    """
-    Expert module consisting of 1x1 convolutional layers with ReLU activation.
-    
-    Args:
-        emb_size (int): Input embedding size.
-        hidden_rate (int, optional): Multiplier for hidden layer size. Defaults to 2.
-    """
-    def __init__(self, emb_size: int, hidden_rate: int = 2):
-        super().__init__()
-        hidden_emb = hidden_rate * emb_size
-        self.seq = nn.Sequential(
-            nn.Conv2d(emb_size, hidden_emb, kernel_size=1, stride=1, padding=0, bias=True),
-            nn.Conv2d(hidden_emb, hidden_emb, kernel_size=1, stride=1, padding=0, bias=True),
-            nn.BatchNorm2d(hidden_emb),
-            nn.ReLU(),
-            nn.Conv2d(hidden_emb, emb_size, kernel_size=1, stride=1, padding=0, bias=True),
-        )
-        
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """Forward pass through the expert network."""
-        return self.seq(x)
 class CapsuleExpert(nn.Module):
     """
     Capsule-based expert module using primary capsule logic followed by squashing.
-    This replaces traditional Conv layers in the MoE expert.
     """
-    def __init__(self, in_channels: int, num_capsules: int = 16, capsule_dim: int = None):
+    def __init__(self, in_channels: int, num_capsules: int = 16, capsule_dim: int = None, kernel_size: int = 3):
         super().__init__()
         self.num_capsules = num_capsules
         self.capsule_dim = capsule_dim or (in_channels // num_capsules)
-
         self.conv_capsules = nn.ModuleList([
-            nn.Conv2d(in_channels, self.capsule_dim, kernel_size=3, stride=1, padding=1)
+            nn.Sequential(
+                nn.Conv2d(in_channels, self.capsule_dim, kernel_size=kernel_size, padding=kernel_size // 2),
+                nn.ReLU(inplace=True)
+            )
             for _ in range(num_capsules)
         ])
         self.output_proj = nn.Conv2d(self.num_capsules * self.capsule_dim, in_channels, kernel_size=1)
@@ -50,15 +33,101 @@ class CapsuleExpert(nn.Module):
     def squash(self, x, dim=1):
         squared_norm = (x ** 2).sum(dim=dim, keepdim=True)
         scale = squared_norm / (1.0 + squared_norm)
-        return scale * x / (torch.sqrt(squared_norm) + 1e-8)
+        return scale * x / (torch.sqrt(squared_norm + 1e-8))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # Apply each capsule conv in parallel
-        caps_outputs = [caps(x) for caps in self.conv_capsules]  # list of [B, capsule_dim, H, W]
-        u = torch.cat(caps_outputs, dim=1)  # [B, C, H, W]
+        u = torch.cat([caps(x) for caps in self.conv_capsules], dim=1)
         u = self.squash(u, dim=1)
-        return self.output_proj(u)  # [B, in_channels, H, W]
+        return self.output_proj(u)
 
+class MoE(nn.Module):
+    """
+    Mixture of Experts (MoE) module with multiple gating mechanisms and Capsule-based experts.
+    """
+    def __init__(self, num_experts: int, top: int = 2, emb_size: int = 128, H: int = 224, W: int = 224):
+        super().__init__()
+        self.num_experts = num_experts
+        self.top = top
+        self.emb_size = emb_size
+        self.experts = nn.ModuleList([CapsuleExpert(emb_size) for _ in range(num_experts)])
+        self.gates = nn.ParameterList([nn.Parameter(torch.zeros(emb_size, num_experts)) for _ in range(4)])
+        self._initialize_weights()
+        self.gap = nn.AdaptiveAvgPool2d((1, 1))
+
+    def _initialize_weights(self):
+        for gate in self.gates:
+            nn.init.xavier_uniform_(gate)
+
+    def cv_squared(self, x: torch.Tensor) -> torch.Tensor:
+        eps = 1e-10
+        if x.shape[0] == 1:
+            return torch.tensor([0], device=x.device, dtype=x.dtype)
+        return x.float().var() / (x.float().mean()**2 + eps)
+
+    def _process_gate(self, x: torch.Tensor, gate_weights: nn.Parameter) -> Tuple[torch.Tensor, torch.Tensor]:
+        batch_size, emb_size, H, W = x.shape
+        x_gap = self.gap(x).view(batch_size, emb_size)
+        gate_probs = F.softmax(x_gap @ gate_weights, dim=1)
+
+        topk_weights, topk_indices = gate_probs.topk(self.top, dim=1)
+        topk_weights = F.softmax(topk_weights, dim=1)
+
+        output = torch.zeros_like(x)
+        expert_usage = gate_probs.sum(0)
+
+        for k in range(self.top):
+            expert_ids = topk_indices[:, k]
+            weights = topk_weights[:, k].view(-1, 1, 1, 1)
+
+            for expert_id in torch.unique(expert_ids):
+                idx = (expert_ids == expert_id).nonzero(as_tuple=True)[0]
+                if idx.numel() > 0:
+                    x_chunk = x[idx]
+                    y_chunk = self.experts[expert_id](x_chunk)
+                    output[idx] += y_chunk * weights[idx]
+
+        return output, self.cv_squared(expert_usage)
+
+    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        ys, losses = [], []
+        for gate in self.gates:
+            y, loss = self._process_gate(x, gate)
+            ys.append(y)
+            losses.append(loss)
+        total_loss = torch.stack(losses).mean()
+        return (*ys, total_loss)
+
+def count_parameters(model: nn.Module) -> str:
+    params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    if params >= 1e6:
+        return f"{params / 1e6:.2f}M parameters"
+    elif params >= 1e3:
+        return f"{params / 1e3:.2f}K parameters"
+    else:
+        return f"{params} parameters"
+
+if __name__ == '__main__':
+    try:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = MoE(num_experts=4, top=2, emb_size=128).to(device)
+        model.train()
+
+        emb = torch.randn(6, 128, 224, 224).to(device)
+        out1, out2, out3, out4, loss = model(emb)
+
+        assert out1.shape == emb.shape
+        assert out2.shape == emb.shape
+        assert out3.shape == emb.shape
+        assert out4.shape == emb.shape
+
+        print("\n=== MoE Module Test Passed ===")
+        print(f"Input Shape: {emb.shape}")
+        print(f"Output Shapes: {out1.shape}, {out2.shape}, {out3.shape}, {out4.shape}")
+        print(f"Load Balancing Loss: {loss.item():.4f}")
+        print(f"Model Parameters: {count_parameters(model)}")
+
+    except Exception as e:
+        print(f"Test failed: {e}")
 class MoE(nn.Module):
     """
     Mixture of Experts (MoE) module with multiple gating mechanisms.
